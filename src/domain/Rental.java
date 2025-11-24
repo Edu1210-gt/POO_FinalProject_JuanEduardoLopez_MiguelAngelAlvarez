@@ -1,4 +1,4 @@
-package domain;
+package src.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -19,7 +19,7 @@ public class Rental implements Serializable {
         this.movie = movie;
         this.customer = customer;
         this.idRental = "RM-" + (int) (Math.random() * Math.pow(10, 3));
-        this.movie.setAvailability(false);
+        this.movie.setAvailable(false);
     }
 
     // methods
@@ -42,7 +42,7 @@ public class Rental implements Serializable {
 
     // Calculate rental cost
     public void calculateRentalCost() {
-        this.totalCost = rentalDays * movie.getcostToday();
+        this.totalCost = rentalDays * movie.getRentalPrice();
     }
 
     public Movie getMovie() {

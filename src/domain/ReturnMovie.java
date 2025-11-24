@@ -1,4 +1,4 @@
-package domain;
+package src.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -31,7 +31,7 @@ public class ReturnMovie implements Serializable {
         long daysOfArrears = calculationsDaysofArrears();
         double costOfArrears;
         if (daysOfArrears > 0) {
-            costOfArrears = daysOfArrears * (this.renta.getMovie().getcostToday() * 0.3);
+            costOfArrears = daysOfArrears * (this.renta.getMovie().getRentalPrice() * 0.3);
             return costOfArrears;
         } else {
             return 0;
