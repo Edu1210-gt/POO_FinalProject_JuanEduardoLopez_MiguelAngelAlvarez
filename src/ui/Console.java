@@ -16,6 +16,11 @@ public class Console {
         System.out.print(prompt);
         return scanner.nextLine();
     }
+
+    public static int readLineInt(String prompt){
+        System.out.println(prompt);
+        return scanner.nextInt();
+    }
 }
 
 
