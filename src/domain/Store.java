@@ -11,6 +11,7 @@ public class Store implements Serializable{
     private ArrayList<Movie> movies;
     private ArrayList<Customer> customers;
     private ArrayList<Rental> rentals;
+    
 
     public Store() {
         this.movies = new ArrayList<>();
@@ -39,7 +40,7 @@ public class Store implements Serializable{
     }
     public List<Movie> searchMoviesByGenre(String genre) {
         return movies.stream()
-                .filter(m -> m.getGenre().toLowerCase().equals(genre.toLowerCase()))
+                .filter(m -> m.getGenre().toLowerCase().contains(genre.toLowerCase()))
                 .collect(Collectors.toList());
     }
 
@@ -128,6 +129,15 @@ public boolean rentMovie(Rental rental){
     }
     return false;
 }
+public boolean returnMovie(String rentalId){
+    Rental rental = findRentalById(rentalId);
+    if(rental != null){
+        rental.getMovie().setAvailable(true);
+        return rentals.remove(rental);
+    }
+    return false;
+}
+
 public Rental findRentalById(String rentalId){
     for(Rental r : rentals){
         if(r.getIdRental().equals(rentalId)){
@@ -142,10 +152,52 @@ public List<Rental> getRentalsByCustomer(String customerId){
             .collect(Collectors.toList());
         
 }
-
 public ArrayList<Rental> getAllRentals(){
     return rentals;
 }
+
+//________________________REGISTER___________________________________
+
+public void showMoviesWithRentCount(){
+    for(Movie movie : movies){
+        int count = 0;
+
+        for (Rental r : rentals){
+            if(r.getMovie().getMovieId().equals(movie.getMovieId())){
+                count++;
+            }
+        }
+        System.out.println("Title: " + movie.getTitle() + " | Rentals: " + count);
+    }
+}
+public Movie mostRenta(){
+
+    if(rentals.isEmpty()){
+        return null;
+    }
+
+    Movie most = null;
+    int max = 0;
+
+    for(Movie m : movies){
+        int count = 0;
+        for(Rental r : rentals){
+            if(r.getMovie().getMovieId().equals(m.getMovieId())){
+            count++;
+        }
+        
+    }
+    if(count > max){
+        max = count;
+        most = m;
+    }
+}
+return most;
+}
+
+
+
+
 public void setMovies(ArrayList<Movie> movies){
     this.movies = movies;
 }
