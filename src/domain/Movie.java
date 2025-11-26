@@ -9,28 +9,14 @@ public class Movie implements Serializable{
     private double rentalPrice;
     private boolean available;
 
-    public Movie(String movieId, String title, String genre) {
+    public Movie(String movieId, String title, String genre, double rentalPrice) {
         this.movieId = movieId;
         this.title = title;
         this.genre = genre;
-        this.rentalPrice = calculatorPrice();
+        this.rentalPrice = rentalPrice;
         this.available = true;
     }
 
-    public double calculatorPrice(){
-        switch (genre.toLowerCase()) {
-            case "action" :
-                return 10000;
-            case "romance" :
-                return 8000;
-            case "terror" :
-                return 12000;
-            case "drama" :
-                return 6000;
-            default:
-                return 5000;
-        }
-    }
     public String getMovieId() {
         return movieId;
     }
