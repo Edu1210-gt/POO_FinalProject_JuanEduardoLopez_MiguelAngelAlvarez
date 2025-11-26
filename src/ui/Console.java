@@ -1,3 +1,4 @@
+
 package src.ui;
 
 import java.util.Scanner;
@@ -16,3 +17,5 @@ public class Console {
         return scanner.nextLine();
     }
 }
+
+
