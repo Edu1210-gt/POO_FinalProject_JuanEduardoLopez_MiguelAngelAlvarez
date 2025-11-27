@@ -19,7 +19,7 @@ public class Rental implements Serializable {
         this.movie = movie;
         this.customer = customer;
         this.idRental = "RM-" + (int) (Math.random() * Math.pow(10, 3));
-        this.movie.setAvailable(false);
+
     }
 
     // methods
