@@ -157,7 +157,26 @@ public ArrayList<Rental> getAllRentals(){
 }
 
 //________________________REGISTER___________________________________
+public Movie leastMovie(){
+    if(rentals.isEmpty()) 
+        return null;
+    Movie least = null;
+    int min = Integer.MAX_VALUE;
+    for(Movie m : movies){
+        int count = 0;
+        for(Rental r : rentals){
+            if(r.getMovie().getMovieId().equals(m.getMovieId()))
+                count ++;
+            
+            if (count < min){
+                min = count;
+                least = m;
+            }
 
+        }
+    }
+    return least;
+}
 public void showMoviesWithRentCount(){
     for(Movie movie : movies){
         int count = 0;
@@ -194,6 +213,9 @@ public Movie mostRenta(){
 }
 return most;
 }
+
+
+
 
 
 

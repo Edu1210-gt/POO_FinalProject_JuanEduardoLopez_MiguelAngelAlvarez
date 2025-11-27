@@ -13,12 +13,14 @@ public class Console {
     public static String readLine(String promt) {
         System.out.println(promt);
         return scanner.nextLine();
+
     }
 
     public static int readLineInt(String promt) {
         System.out.println(promt);
         int value = scanner.nextInt();
-        scanner.nextLine(); // limpia el ENTER que queda pendiente
+        scanner.nextLine();
         return value;
     }
+
 }
