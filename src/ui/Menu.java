@@ -61,6 +61,12 @@ public class Menu {
     public void startMenu() {
         boolean start = true;
         while (start) {
+            Console.writeLine("=========================================================");
+            Console.writeLine("============== BIENVENIDO A VIDEO CLUB ==================");
+            Console.writeLine("=========================================================");
+
+
+
             Console.writeLine("\n=============== MAIN MENU (TABLE VIEW) ===============");
 
             Console.writeLine("  MOVIE                         |   CUSTOMER");
@@ -326,7 +332,7 @@ public class Menu {
         String name = Console.readLine("Enter customer name: ");
         String email = Console.readLine("Enter customer email: ");
         String phoneNumber = Console.readLine("Enter customer phone number: ");
-
+       
         Customer customer = new Customer(id, name, email, phoneNumber);
 
         if (store.addCustomer(customer)) {
@@ -335,6 +341,7 @@ public class Menu {
         } else {
             System.out.println("Customer registration failed. Customer may already exist.");
         }
+        
     }
 
     /**
