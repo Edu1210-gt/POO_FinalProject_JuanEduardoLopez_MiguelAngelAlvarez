@@ -101,4 +101,12 @@ public class ReturnMovie implements Serializable {
         return totalToPay;
     }
 
+public String toString() {
+    return  "returnDate |  " + returnMovie +
+            ", rentalId  | " + renta.getIdRental() +
+            ", daysLate | " + calculationsDaysofArrears() +
+            ", totalToPay | " + calculationsTotaltoPay();
 }
+    
+}
+

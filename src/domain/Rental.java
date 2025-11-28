@@ -142,4 +142,16 @@ public class Rental implements Serializable {
         return customer;
     }
 
+public String toString() {
+    return  " ID Rental: | '" + idRental  +
+            " Movie: | " + movie.getTitle() +
+            " Customer: | " + customer.getName() +
+            " RentalInitial: |" + rentalInitial +
+            " RentalDays: | " + rentalDays +
+            " TotalCost: | " + totalCost;
 }
+
+}
+    
+
+
