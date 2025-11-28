@@ -53,7 +53,7 @@ public class Console {
                 return input;
             }
 
-            System.out.println(" Error: Este campo no puede estar vacío. Intente de nuevo.");
+            System.out.println(" Error: This field cannot be empty. Please try again..");
         }
     }
 
@@ -99,7 +99,7 @@ public class Console {
                 String input = scanner.nextLine().trim();
                 return Double.parseDouble(input);
             } catch (NumberFormatException e) {
-                System.out.println(" Error: Debe ingresar un número decimal válido.");
+                System.out.println(" Error: You must enter a valid decimal number.");
             }
         }
     }
