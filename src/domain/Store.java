@@ -330,10 +330,11 @@ public boolean validarEmail(String email) {
                 if (r.getMovie().getMovieId().equals(m.getMovieId()))
                     count++;
 
+                
+                }
                 if (count < min) {
                     min = count;
                     least = m;
-                }
 
             }
         }
